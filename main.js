@@ -123,13 +123,14 @@ api.get('/crud')
         console.error('Xatolik:', error);
     });
 
-<<<<<<< HEAD
 function deleteProduct(id, card){
     api.delete(`/crud/${id}`)
         .then(() => {
             card.remove()
         })
-=======
+
+}
+
 function basketProd(son){
     let a = localStorage.getItem("prods")
     if(!a){
@@ -140,5 +141,4 @@ function basketProd(son){
     b.push(son)
     localStorage.setItem("prods", JSON.stringify(b))
     console.log(b);
->>>>>>> 21b84fa8e22bcdc0f306398250bd985cd7536bc3
 }

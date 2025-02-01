@@ -102,6 +102,7 @@ button:active {
     color: #4CAF50;
 }
 
+<<<<<<< HEAD
 .edit-btn{
     background-color: blue;
     padding: 8px, 12px;
@@ -125,4 +126,10 @@ button:active {
 }
 .delete-btn:hover{
     background-color: #3e8e41;
+=======
+.container i {
+    font-size: 30px;
+    margin-left: 70px;
+    color: #3e8e41;
+>>>>>>> 21b84fa8e22bcdc0f306398250bd985cd7536bc3
 }

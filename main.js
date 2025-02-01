@@ -1,7 +1,6 @@
 
 const api = axios.create({
-    baseURL: 'https://679e04ed946b0e23c0625fcb.mockapi.io', 
-    timeout: 2500, 
+    baseURL: 'https://679e04ed946b0e23c0625fcb.mockapi.io'
 });
 
 
@@ -49,6 +48,8 @@ function generateCard() {
 api.get('/crud')
     .then(response => {
         const products = response.data;
+        console.log(products);
+        
 
         
         products.forEach(product => {
@@ -78,8 +79,26 @@ api.get('/crud')
             card.appendChild(cardColor);
 
             cardContainer.appendChild(card);
+
+            const btnBuy = document.createElement('button');
+            btnBuy.textContent = 'Buy'
+            btnBuy.classList.add('btnBuy')
+            btnBuy.addEventListener('click', () => basketProd(product.id));
+            card.appendChild(btnBuy);
         });
     })
     .catch(error => {
         console.error('Xatolik:', error);
     });
+
+function basketProd(son){
+    let a = localStorage.getItem("prods")
+    if(!a){
+        localStorage.setItem('prods', JSON.stringify([]))
+    }
+
+    let b = JSON.parse(a)
+    b.push(son)
+    localStorage.setItem("prods", JSON.stringify(b))
+    console.log(b);
+}

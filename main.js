@@ -1,6 +1,6 @@
 
 const api = axios.create({
-    baseURL: 'https://679e103f946b0e23c0627b31.mockapi.io/apiv1', 
+    baseURL: 'https://679e04ed946b0e23c0625fcb.mockapi.io', 
     timeout: 2500, 
 });
 
@@ -46,7 +46,7 @@ function generateCard() {
 }
 
 
-api.get('products')
+api.get('/crud')
     .then(response => {
         const products = response.data;
 

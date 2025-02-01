@@ -101,3 +101,28 @@ button:active {
     font-weight: bold;
     color: #4CAF50;
 }
+
+.edit-btn{
+    background-color: blue;
+    padding: 8px, 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.edit-btn:hover{
+    background-color: #3e8e41;
+}
+.delete-btn{
+    background-color: red;
+    padding: 8px, 12px;
+    font-size: 14px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+    margin-top: 10px;
+}
+.delete-btn:hover{
+    background-color: #3e8e41;
+}

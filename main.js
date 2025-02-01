@@ -36,15 +36,47 @@ function generateCard() {
     cardColor.textContent = `Rangi: ${color}`;
     card.appendChild(cardColor);
 
+    let editBtn = document.createElement('button')
+    editBtn.textContent = 'Edit'
+    editBtn.onclick = () => loadToInput(card, name, price, color, image)
+    card.appendChild(editBtn)
+
+    let deleteBtn = document.createElement('button')
+    deleteBtn.textContent = 'Delete'
+    deleteBtn.onclick = () => card.remove()
+    card.appendChild(deleteBtn)
+
     cardContainer.appendChild(card);
 
-    
     document.getElementById('name').value = '';
     document.getElementById('price').value = '';
     document.getElementById('color').value = '';
     document.getElementById('image').value = '';
 }
 
+function loadToInput(card, name, price, color, image){
+    document.getElementById('name').value = name
+    document.getElementById('price').value = price
+    document.getElementById('color').value = color
+    document.getElementById('image').value = image
+
+    let updateButton = document.getElementById('update-btn')
+    updateButton.onclick = () => updateProduct(card)
+}
+
+function updateProduct(card){
+    let name = document.getElementById('name').value;
+    let price = document.getElementById('price').value;
+    let color = document.getElementById('color').value;
+    let image = document.getElementById('image').value;
+
+    card.querySelector('h3').textContent = name;
+    card.querySelector('p:nth-child(3)').textContent = `Narhi: ${price} so'm`;
+    card.querySelector('p:nth-child(4)').textContent = `Rangi: ${color}`;
+    card.querySelector('img').src = image;
+
+    document.getElementById('update-btn') 
+}
 
 api.get('/crud')
     .then(response => {
@@ -83,3 +115,10 @@ api.get('/crud')
     .catch(error => {
         console.error('Xatolik:', error);
     });
+
+function deleteProduct(id, card){
+    api.delete(`/crud/${id}`)
+        .then(() => {
+            card.remove()
+        })
+}
